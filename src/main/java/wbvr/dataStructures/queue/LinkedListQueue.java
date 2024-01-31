@@ -11,13 +11,21 @@ public class LinkedListQueue<T> implements IQueue<T>{
 
     @Override
     public T dequeue() {
-        var first = first();
+        if (isEmpty()) {
+            System.out.println("Queue is empty, there is no elements to dequeue.");
+            return null;
+        }
+        T first = first();
         list.removeFirst();
         return first;
     }
 
     @Override
     public T first() {
+        if (isEmpty()) {
+            System.out.println("Queue is empty, there is no first element.");
+            return null;
+        }
         return list.first().getData();
     }
 

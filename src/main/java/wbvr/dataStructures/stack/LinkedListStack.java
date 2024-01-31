@@ -12,13 +12,21 @@ public class LinkedListStack<T> implements IStack<T> {
 
     @Override
     public T pop() {
-        var first = top();
+        if (isEmpty()) {
+            System.out.println("Stack is empty, there is no elements to remove.");
+            return null;
+        }
+        T first = top();
         list.removeFirst();
         return first;
     }
 
     @Override
     public T top() {
+        if (isEmpty()) {
+            System.out.println("Stack is empty, there is no top element.");
+            return null;
+        }
         return list.first().getData();
     }
 
