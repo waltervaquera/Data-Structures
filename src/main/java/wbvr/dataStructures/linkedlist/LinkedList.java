@@ -62,7 +62,11 @@ public class LinkedList<T> implements ILinkedList<T> {
 
     @Override
     public void removeFirst() {
-
+        if (isEmpty()) {
+            System.out.println("Linked list is empty, there is no elements to remove.");
+            return;
+        }
+        head = head.next;
     }
 
     public void print() {

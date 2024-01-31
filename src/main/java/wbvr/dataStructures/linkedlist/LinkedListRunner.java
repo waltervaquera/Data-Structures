@@ -5,14 +5,17 @@ import wbvr.dataStructures.interfaces.IRunner;
 public class LinkedListRunner implements IRunner {
     @Override
     public void run() {
-        DoublyLinkedList<String> list = new DoublyLinkedList<>();
-        System.out.println("Doubly Linked list size: " + list.size());
+        LinkedList<String> list = new LinkedList<>();
+        System.out.println("Linked list size: " + list.size());
 //      print menu
 //      read inputs
         list.addLast("ewe");
         list.addFirst("owo");
         list.addFirst("uwu");
         list.print();
-        System.out.println("Doubly Linked list size: " + list.size());
+        System.out.println("Linked list size: " + list.size());
+        list.removeFirst();
+        list.print();
+        System.out.println("Linked list size: " + list.size());
     }
 }
