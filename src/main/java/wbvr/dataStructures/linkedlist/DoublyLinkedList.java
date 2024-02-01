@@ -69,12 +69,22 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
 
     @Override
     public void removeFirst() {
-
+        if (isEmpty()) {
+            System.out.println("List is empty, there is no elements to remove.");
+            return;
+        }
+        head.next = head.next.next;
+        head.next.prev = head;
     }
 
     @Override
     public void removeLast() {
-
+        if (isEmpty()) {
+            System.out.println("List is empty, there is no elements to remove.");
+            return;
+        }
+        tail.prev = tail.prev.prev;
+        tail.prev.next = tail;
     }
 
     public void print() {
