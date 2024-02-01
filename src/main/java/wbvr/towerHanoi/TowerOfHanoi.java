@@ -2,6 +2,8 @@ package wbvr.towerHanoi;
 
 import wbvr.dataStructures.stack.LinkedListStack;
 
+import java.util.Scanner;
+
 public class TowerOfHanoi {
     private final LinkedListStack<Integer> source;
     private final LinkedListStack<Integer> auxiliary;
@@ -56,7 +58,9 @@ public class TowerOfHanoi {
     }
 
     public static void main(String[] args) {
-        int numberOfDisks = 3;
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of disks: ");
+        int numberOfDisks = scanner.nextInt();
 
         TowerOfHanoi towerOfHanoi = new TowerOfHanoi(numberOfDisks);
         towerOfHanoi.solve();
