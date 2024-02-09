@@ -1,21 +1,23 @@
 package wbvr.dataStructures.queue;
 
 import wbvr.dataStructures.interfaces.IRunner;
-import wbvr.dataStructures.stack.LinkedListStack;
 
 public class QueueRunner implements IRunner {
     @Override
     public void run() {
-        LinkedListQueue<String> queue = new LinkedListQueue<>();
+        LinkedListDequeue<String> queue = new LinkedListDequeue<>();
         System.out.println("Queue size: " + queue.size());
 //      print menu
 //      read inputs
-        queue.enqueue("ewe");
-        queue.enqueue("owo");
-        queue.enqueue("uwu");
+        queue.addFirst("ewe");
+        queue.addLast("owo");
+        queue.addFirst("uwu");
         queue.print();
         System.out.println("Queue size: " + queue.size());
-        queue.dequeue();
+        queue.removeFirst();
+        queue.print();
+        System.out.println("Queue size: " + queue.size());
+        queue.removeLast();
         queue.print();
         System.out.println("Queue size: " + queue.size());
     }
