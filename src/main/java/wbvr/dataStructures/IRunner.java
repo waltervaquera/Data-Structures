@@ -1,4 +1,4 @@
-package wbvr.dataStructures.interfaces;
+package wbvr.dataStructures;
 
 public interface IRunner {
     void run();

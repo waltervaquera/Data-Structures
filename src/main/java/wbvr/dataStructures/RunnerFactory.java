@@ -1,7 +1,6 @@
 package wbvr.dataStructures;
 
-import wbvr.dataStructures.interfaces.IRunner;
-import wbvr.dataStructures.linkedlist.LinkedListRunner;
+import wbvr.dataStructures.linkedList.LinkedListRunner;
 import wbvr.dataStructures.queue.QueueRunner;
 import wbvr.dataStructures.stack.StackRunner;
 

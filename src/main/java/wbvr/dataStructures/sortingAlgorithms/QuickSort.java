@@ -1,4 +1,4 @@
-package wbvr.dataStructures.quickSort;
+package wbvr.dataStructures.sortingAlgorithms;
 
 public class QuickSort {
     public void sort(int[] arr) {

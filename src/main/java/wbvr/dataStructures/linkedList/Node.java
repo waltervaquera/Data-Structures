@@ -1,4 +1,4 @@
-package wbvr.dataStructures.linkedlist;
+package wbvr.dataStructures.linkedList;
 
 public class Node<T> {
     T data;

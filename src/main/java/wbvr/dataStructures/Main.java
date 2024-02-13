@@ -1,7 +1,5 @@
 package wbvr.dataStructures;
 
-import wbvr.dataStructures.interfaces.IRunner;
-
 public class Main {
     public static void main(String[] args) {
         printMenu();

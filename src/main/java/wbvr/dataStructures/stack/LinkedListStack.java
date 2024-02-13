@@ -1,6 +1,6 @@
 package wbvr.dataStructures.stack;
 
-import wbvr.dataStructures.linkedlist.LinkedList;
+import wbvr.dataStructures.linkedList.LinkedList;
 
 public class LinkedListStack<T> implements IStack<T> {
     private final LinkedList<T> list = new LinkedList<>();

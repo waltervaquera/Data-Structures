@@ -1,6 +1,6 @@
 package wbvr.dataStructures.queue;
 
-import wbvr.dataStructures.interfaces.IRunner;
+import wbvr.dataStructures.IRunner;
 
 public class QueueRunner implements IRunner {
     @Override

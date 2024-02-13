@@ -1,6 +1,6 @@
 package wbvr.dataStructures.queue;
 
-import wbvr.dataStructures.linkedlist.LinkedList;
+import wbvr.dataStructures.linkedList.LinkedList;
 
 public class LinkedListQueue<T> implements IQueue<T>{
     private final LinkedList<T> list = new LinkedList<>();

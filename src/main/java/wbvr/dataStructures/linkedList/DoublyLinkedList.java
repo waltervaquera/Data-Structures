@@ -1,4 +1,4 @@
-package wbvr.dataStructures.linkedlist;
+package wbvr.dataStructures.linkedList;
 
 public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     private final DoubleEdgeNode<T> head;

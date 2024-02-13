@@ -1,6 +1,6 @@
 package wbvr.dataStructures.stack;
 
-import wbvr.dataStructures.interfaces.IRunner;
+import wbvr.dataStructures.IRunner;
 
 public class StackRunner implements IRunner {
     @Override

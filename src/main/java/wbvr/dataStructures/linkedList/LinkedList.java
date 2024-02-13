@@ -1,4 +1,4 @@
-package wbvr.dataStructures.linkedlist;
+package wbvr.dataStructures.linkedList;
 
 public class LinkedList<T> implements ILinkedList<T> {
     Node<T> head;

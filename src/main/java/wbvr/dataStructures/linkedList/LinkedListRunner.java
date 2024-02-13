@@ -1,6 +1,6 @@
-package wbvr.dataStructures.linkedlist;
+package wbvr.dataStructures.linkedList;
 
-import wbvr.dataStructures.interfaces.IRunner;
+import wbvr.dataStructures.IRunner;
 
 public class LinkedListRunner implements IRunner {
     @Override
