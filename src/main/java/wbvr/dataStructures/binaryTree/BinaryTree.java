@@ -1,5 +1,8 @@
 package wbvr.dataStructures.binaryTree;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree implements IBinaryTree {
     BTNode root;
 
@@ -37,24 +40,24 @@ public class BinaryTree implements IBinaryTree {
     }
 
     @Override
-    public int[] inOrder() {
-        int[] arr = new int[size()];
-        inOrder(root, arr, 0);
-        return arr;
+    public int[] preOrder() {
+        List<Integer> result = new ArrayList<>();
+        preOrder(root, result);
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
     @Override
-    public int[] preOrder() {
-        int[] arr = new int[size()];
-        preOrder(root, arr, 0);
-        return arr;
+    public int[] inOrder() {
+        List<Integer> result = new ArrayList<>();
+        inOrder(root, result);
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
     @Override
     public int[] postOrder() {
-        int[] arr = new int[size()];
-        postOrder(root, arr, 0);
-        return arr;
+        List<Integer> result = new ArrayList<>();
+        postOrder(root, result);
+        return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
     @Override
@@ -70,8 +73,9 @@ public class BinaryTree implements IBinaryTree {
     public void print() {
         var preOrder = preOrder();
         for (int i : preOrder) {
-            System.out.println(i + " ");
+            System.out.print(i + " ");
         }
+        System.out.println();
     }
 
     private static BTNode insert(BTNode root, int data) {
@@ -114,27 +118,27 @@ public class BinaryTree implements IBinaryTree {
         return getNode(root.right, data);
     }
 
-    private void inOrder(BTNode node, int[] arr, int index) {
+    private void preOrder(BTNode node, List<Integer> result) {
         if (node != null) {
-            inOrder(node.left, arr, index);
-            arr[index++] = node.data;
-            inOrder(node.right, arr, index);
+            result.add(node.data);
+            preOrder(node.left, result);
+            preOrder(node.right, result);
         }
     }
 
-    private void preOrder(BTNode node, int[] arr, int index) {
+    private void inOrder(BTNode node, List<Integer> result) {
         if (node != null) {
-            arr[index++] = node.data;
-            preOrder(node.left, arr, index);
-            preOrder(node.right, arr, index);
+            inOrder(node.left, result);
+            result.add(node.data);
+            inOrder(node.right, result);
         }
     }
 
-    private void postOrder(BTNode node, int[] arr, int index) {
+    private void postOrder(BTNode node, List<Integer> result) {
         if (node != null) {
-            postOrder(node.left, arr, index);
-            postOrder(node.right, arr, index);
-            arr[index++] = node.data;
+            postOrder(node.left, result);
+            postOrder(node.right, result);
+            result.add(node.data);
         }
     }
 

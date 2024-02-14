@@ -1,4 +1,4 @@
-package wbvr.dataStructures.linkedList;
+package wbvr.dataStructures.doublyLinkedList;
 
 public interface IDoublyLinkedList<T> {
     int size();

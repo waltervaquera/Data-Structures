@@ -1,4 +1,4 @@
-package wbvr.dataStructures.linkedList;
+package wbvr.dataStructures.doublyLinkedList;
 
 public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     private final DoubleEdgeNode<T> head;
@@ -70,7 +70,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     @Override
     public void removeFirst() {
         if (isEmpty()) {
-            System.out.println("List is empty, there is no elements to remove.");
+            System.out.println("Doubly Linked List is empty, there is no elements to remove.");
             return;
         }
         head.next = head.next.next;
@@ -80,7 +80,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     @Override
     public void removeLast() {
         if (isEmpty()) {
-            System.out.println("List is empty, there is no elements to remove.");
+            System.out.println("Doubly Linked List is empty, there is no elements to remove.");
             return;
         }
         tail.prev = tail.prev.prev;
@@ -90,8 +90,9 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
     public void print() {
         DoubleEdgeNode<T> current = head.next;
         while (current != tail) {
-            System.out.println(current.data);
+            System.out.print(current.data + " ");
             current = current.next;
         }
+        System.out.println();
     }
 }

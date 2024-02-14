@@ -6,8 +6,8 @@ public interface IBinaryTree {
     BTNode getRoot();
     BTNode getNode(int data);
     void delete(int data);
-    int[] inOrder();
     int[] preOrder();
+    int[] inOrder();
     int[] postOrder();
     int height();
     int size();

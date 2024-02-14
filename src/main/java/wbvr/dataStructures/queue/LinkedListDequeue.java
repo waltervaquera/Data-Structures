@@ -1,6 +1,6 @@
 package wbvr.dataStructures.queue;
 
-import wbvr.dataStructures.linkedList.DoublyLinkedList;
+import wbvr.dataStructures.doublyLinkedList.DoublyLinkedList;
 
 public class LinkedListDequeue<T> implements IDequeue<T>{
     private final DoublyLinkedList<T> list = new DoublyLinkedList<>();
