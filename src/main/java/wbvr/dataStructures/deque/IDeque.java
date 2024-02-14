@@ -1,6 +1,6 @@
-package wbvr.dataStructures.queue;
+package wbvr.dataStructures.deque;
 
-public interface IDequeue<T> {
+public interface IDeque<T> {
     void addFirst(T t);
     void addLast(T t);
     T removeFirst();

@@ -1,6 +1,7 @@
 package wbvr.dataStructures;
 
 import wbvr.dataStructures.binaryTree.BinaryTreeRunner;
+import wbvr.dataStructures.deque.DequeRunner;
 import wbvr.dataStructures.doublyLinkedList.DoublyLinkedListRunner;
 import wbvr.dataStructures.linkedList.LinkedListRunner;
 import wbvr.dataStructures.queue.QueueRunner;
@@ -13,8 +14,9 @@ public class RunnerFactory {
             case "B" -> new DoublyLinkedListRunner();
             case "C" -> new StackRunner();
             case "D" -> new QueueRunner();
-            case "E" -> new BinaryTreeRunner();
-            case "H" -> new ExitRunner();
+            case "E" -> new DequeRunner();
+            case "F" -> new BinaryTreeRunner();
+            case "I" -> new ExitRunner();
             default -> new NullRunner();
         };
     }

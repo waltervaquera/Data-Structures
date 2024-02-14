@@ -1,8 +1,8 @@
-package wbvr.dataStructures.queue;
+package wbvr.dataStructures.deque;
 
 import wbvr.dataStructures.doublyLinkedList.DoublyLinkedList;
 
-public class LinkedListDequeue<T> implements IDequeue<T>{
+public class LinkedListDeque<T> implements IDeque<T> {
     private final DoublyLinkedList<T> list = new DoublyLinkedList<>();
     @Override
     public void addFirst(T t) { list.addFirst(t);}
@@ -13,7 +13,7 @@ public class LinkedListDequeue<T> implements IDequeue<T>{
     @Override
     public T removeFirst() {
         if (isEmpty()) {
-            System.out.println("Queue is empty, there is no elements to remove.");
+            System.out.println("Deque is empty, there is no elements to remove.");
             return null;
         }
         T first = first();
@@ -24,7 +24,7 @@ public class LinkedListDequeue<T> implements IDequeue<T>{
     @Override
     public T removeLast() {
         if (isEmpty()) {
-            System.out.println("Queue is empty, there is no elements to remove.");
+            System.out.println("Deque is empty, there is no elements to remove.");
             return null;
         }
         T last = last();
@@ -35,7 +35,7 @@ public class LinkedListDequeue<T> implements IDequeue<T>{
     @Override
     public T first() {
         if (isEmpty()) {
-            System.out.println("Queue is empty, there is no first element.");
+            System.out.println("Deque is empty, there is no first element.");
             return null;
         }
         return list.first().getData();
@@ -44,7 +44,7 @@ public class LinkedListDequeue<T> implements IDequeue<T>{
     @Override
     public T last() {
         if (isEmpty()) {
-            System.out.println("Queue is empty, there is no last element.");
+            System.out.println("Deque is empty, there is no last element.");
             return null;
         }
         return list.last().getData();

@@ -13,7 +13,7 @@ public class Main {
             choice = scanner.nextLine();
             IRunner manager = RunnerFactory.getRunner(choice);
             manager.run();
-        } while (!choice.equals("H"));
+        } while (!choice.equals("I"));
     }
 
     private static void printMenu() {
@@ -23,10 +23,11 @@ public class Main {
         System.out.println("B: Doubly Linked List");
         System.out.println("C: Stack");
         System.out.println("D: Queue");
-        System.out.println("E: Binary Tree");
-        System.out.println("F: Graph");
-        System.out.println("G: Sorting Algorithms");
-        System.out.println("H: Exit");
+        System.out.println("E: Deque");
+        System.out.println("F: Binary Tree");
+        System.out.println("G: Graph");
+        System.out.println("H: Sorting Algorithms");
+        System.out.println("I: Exit");
         System.out.println("------------------------");
     }
 }
