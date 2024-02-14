@@ -42,6 +42,7 @@ public class BinaryTreeRunner implements IRunner {
 
     private void action(String choice, BinaryTree binaryTree) {
         Scanner scanner = new Scanner(System.in);
+        BTNode node;
         switch (choice) {
             case "A":
                 System.out.print("Enter the Integer to Insert: ");
@@ -64,7 +65,7 @@ public class BinaryTreeRunner implements IRunner {
                 break;
             case "D":
                 System.out.print("Enter the Integer to Get: ");
-                BTNode node = binaryTree.getNode(scanner.nextInt());
+                node = binaryTree.getNode(scanner.nextInt());
 
                 if (node == null) {
                     System.out.println("Element Not Found.");
@@ -72,6 +73,20 @@ public class BinaryTreeRunner implements IRunner {
                 }
 
                 System.out.println("Found Element: " + node.data);
+                break;
+            case "E":
+                System.out.print("Enter the Integer to Delete: ");
+                node = binaryTree.getNode(scanner.nextInt());
+
+                if (node == null) {
+                    System.out.println("Element Not Found.");
+                    break;
+                }
+
+                binaryTree.delete(node.data);
+                System.out.println("Element Successfully Deleted.");
+                System.out.print("Current Binary Tree (Pre-Order): ");
+                binaryTree.print();
                 break;
             case "F":
                 System.out.println("Pre-Order: " + Arrays.toString(binaryTree.preOrder()));
