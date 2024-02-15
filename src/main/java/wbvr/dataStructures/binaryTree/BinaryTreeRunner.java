@@ -61,7 +61,7 @@ public class BinaryTreeRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Root Element: " + binaryTree.getRoot().data);
+                System.out.println("Root Element: " + binaryTree.getRoot());
                 break;
             case "D":
                 System.out.print("Enter the Integer to Get: ");
@@ -72,7 +72,7 @@ public class BinaryTreeRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Found Element: " + node.data);
+                System.out.println("Found Element: " + node);
                 break;
             case "E":
                 System.out.print("Enter the Integer to Delete: ");

@@ -52,7 +52,7 @@ public class DoublyLinkedListRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Doubly Linked List First Element: " + doublyLinkedList.first().getData());
+                System.out.println("Doubly Linked List First Element: " + doublyLinkedList.first());
                 break;
             case "D":
                 if (doublyLinkedList.isEmpty()) {
@@ -60,7 +60,7 @@ public class DoublyLinkedListRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Doubly Linked List Last Element: " + doublyLinkedList.last().getData());
+                System.out.println("Doubly Linked List Last Element: " + doublyLinkedList.last());
                 break;
             case "E":
                 System.out.print("Enter the Element to add First: ");

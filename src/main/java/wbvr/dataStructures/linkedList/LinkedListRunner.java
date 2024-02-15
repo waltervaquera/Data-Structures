@@ -51,7 +51,7 @@ public class LinkedListRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Linked List First Element: " + linkedList.first().data);
+                System.out.println("Linked List First Element: " + linkedList.first());
                 break;
             case "D":
                 if (linkedList.isEmpty()) {
@@ -59,7 +59,7 @@ public class LinkedListRunner implements IRunner {
                     break;
                 }
 
-                System.out.println("Linked List Last Element: " + linkedList.last().data);
+                System.out.println("Linked List Last Element: " + linkedList.last());
                 break;
             case "E":
                 System.out.print("Enter the Element to add First: ");

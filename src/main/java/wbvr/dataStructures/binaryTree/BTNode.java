@@ -14,4 +14,9 @@ public class BTNode {
     public boolean isLeafNode() {
         return left == null && right == null;
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(data);
+    }
 }
