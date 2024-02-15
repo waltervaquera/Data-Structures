@@ -11,6 +11,7 @@ public class Main {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             IRunner manager = RunnerFactory.getRunner(choice);
             manager.run();
         } while (!choice.equals("I"));

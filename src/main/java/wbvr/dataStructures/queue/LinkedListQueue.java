@@ -15,6 +15,7 @@ public class LinkedListQueue<T> implements IQueue<T>{
             System.out.println("Queue is empty, there is no elements to dequeue.");
             return null;
         }
+
         T first = first();
         list.removeFirst();
         return first;
@@ -26,6 +27,7 @@ public class LinkedListQueue<T> implements IQueue<T>{
             System.out.println("Queue is empty, there is no first element.");
             return null;
         }
+
         return list.first().getData();
     }
 

@@ -43,6 +43,7 @@ public class BinaryTree implements IBinaryTree {
     public int[] preOrder() {
         List<Integer> result = new ArrayList<>();
         preOrder(root, result);
+
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
@@ -50,6 +51,7 @@ public class BinaryTree implements IBinaryTree {
     public int[] inOrder() {
         List<Integer> result = new ArrayList<>();
         inOrder(root, result);
+
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
@@ -57,6 +59,7 @@ public class BinaryTree implements IBinaryTree {
     public int[] postOrder() {
         List<Integer> result = new ArrayList<>();
         postOrder(root, result);
+
         return result.stream().mapToInt(Integer::intValue).toArray();
     }
 
@@ -104,6 +107,7 @@ public class BinaryTree implements IBinaryTree {
         if (data < root.data) {
             return search(root.left, data);
         }
+
         return search(root.right, data);
     }
 
@@ -115,6 +119,7 @@ public class BinaryTree implements IBinaryTree {
         if (data < root.data) {
             return getNode(root.left, data);
         }
+
         return getNode(root.right, data);
     }
 

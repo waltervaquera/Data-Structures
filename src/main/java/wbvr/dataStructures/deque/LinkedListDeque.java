@@ -16,6 +16,7 @@ public class LinkedListDeque<T> implements IDeque<T> {
             System.out.println("Deque is empty, there is no elements to remove.");
             return null;
         }
+
         T first = first();
         list.removeFirst();
         return first;
@@ -27,6 +28,7 @@ public class LinkedListDeque<T> implements IDeque<T> {
             System.out.println("Deque is empty, there is no elements to remove.");
             return null;
         }
+
         T last = last();
         list.removeLast();
         return last;
@@ -38,6 +40,7 @@ public class LinkedListDeque<T> implements IDeque<T> {
             System.out.println("Deque is empty, there is no first element.");
             return null;
         }
+
         return list.first().getData();
     }
 
@@ -47,6 +50,7 @@ public class LinkedListDeque<T> implements IDeque<T> {
             System.out.println("Deque is empty, there is no last element.");
             return null;
         }
+
         return list.last().getData();
     }
 

@@ -16,6 +16,7 @@ public class SortRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice);
         } while (!choice.equals("D"));
     }
@@ -35,6 +36,7 @@ public class SortRunner implements IRunner {
         QuickSort quickSort = new QuickSort();
         MergeSort mergeSort = new MergeSort();
         SelectionSort selectionSort = new SelectionSort();
+
         switch (choice) {
             case "A":
                 arr = getIntegers();

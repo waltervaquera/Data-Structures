@@ -8,12 +8,14 @@ public class LinkedList<T> implements ILinkedList<T> {
         if (isEmpty()) {
             return 0;
         }
+
         int size = 0;
         Node<T> current = head;
         while (current != null) {
             size++;
             current = current.next;
         }
+
         return size;
     }
 
@@ -36,16 +38,19 @@ public class LinkedList<T> implements ILinkedList<T> {
             }
             current = current.next;
         }
+
         return null;
     }
 
     @Override
     public void addFirst(T data) {
         Node<T> newNode = new Node<>(data);
+
         if (isEmpty()) {
             head = newNode;
             return;
         }
+
         newNode.next = head;
         head = newNode;
     }
@@ -53,10 +58,12 @@ public class LinkedList<T> implements ILinkedList<T> {
     @Override
     public void addLast(T data) {
         Node<T> lastNode = last();
+
         if (lastNode == null) {
             head = new Node<>(data);
             return;
         }
+
         lastNode.next = new Node<>(data);
     }
 
@@ -66,6 +73,7 @@ public class LinkedList<T> implements ILinkedList<T> {
             System.out.println("List is empty, there is no elements to remove.");
             return;
         }
+
         head = head.next;
     }
 

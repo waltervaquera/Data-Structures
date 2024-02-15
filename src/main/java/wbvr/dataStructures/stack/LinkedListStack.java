@@ -16,6 +16,7 @@ public class LinkedListStack<T> implements IStack<T> {
             System.out.println("Stack is empty, there is no elements to remove.");
             return null;
         }
+
         T first = top();
         list.removeFirst();
         return first;
@@ -27,6 +28,7 @@ public class LinkedListStack<T> implements IStack<T> {
             System.out.println("Stack is empty, there is no top element.");
             return null;
         }
+
         return list.first().getData();
     }
 

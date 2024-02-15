@@ -17,6 +17,7 @@ public class DoublyLinkedListRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, doublyLinkedList);
         } while (!choice.equals("J"));
     }
@@ -39,6 +40,7 @@ public class DoublyLinkedListRunner implements IRunner {
 
     private void action(String choice, DoublyLinkedList<String> doublyLinkedList) {
         Scanner scanner = new Scanner(System.in);
+
         switch (choice) {
             case "A":
                 System.out.println("Doubly Linked List Size: " + doublyLinkedList.size());

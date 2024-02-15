@@ -18,12 +18,14 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         if (isEmpty()) {
             return 0;
         }
+
         int size = 0;
         DoubleEdgeNode<T> current = head.next;
         while (current != tail) {
             size++;
             current = current.next;
         }
+
         return size;
     }
 
@@ -46,6 +48,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
             }
             current = current.next;
         }
+
         return null;
     }
 
@@ -54,6 +57,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
         newNode.prev = head;
         newNode.next = head.next;
+
         head.next = newNode;
         newNode.next.prev = newNode;
     }
@@ -63,6 +67,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
         DoubleEdgeNode<T> newNode = new DoubleEdgeNode<>(data);
         newNode.next = tail;
         newNode.prev = tail.prev;
+
         tail.prev = newNode;
         newNode.prev.next = newNode;
     }
@@ -73,6 +78,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
             System.out.println("Doubly Linked List is empty, there is no elements to remove.");
             return;
         }
+
         head.next = head.next.next;
         head.next.prev = head;
     }
@@ -83,6 +89,7 @@ public class DoublyLinkedList<T> implements IDoublyLinkedList<T> {
             System.out.println("Doubly Linked List is empty, there is no elements to remove.");
             return;
         }
+
         tail.prev = tail.prev.prev;
         tail.prev.next = tail;
     }

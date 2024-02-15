@@ -17,6 +17,7 @@ public class LinkedListRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, linkedList);
         } while (!choice.equals("I"));
     }
@@ -38,6 +39,7 @@ public class LinkedListRunner implements IRunner {
 
     private void action(String choice, LinkedList<String> linkedList) {
         Scanner scanner = new Scanner(System.in);
+
         switch (choice) {
             case "A":
                 System.out.println("Linked List Size: " + linkedList.size());

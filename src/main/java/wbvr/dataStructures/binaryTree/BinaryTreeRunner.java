@@ -18,6 +18,7 @@ public class BinaryTreeRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, binaryTree);
         } while (!choice.equals("L"));
     }
@@ -43,6 +44,7 @@ public class BinaryTreeRunner implements IRunner {
     private void action(String choice, BinaryTree binaryTree) {
         Scanner scanner = new Scanner(System.in);
         BTNode node;
+
         switch (choice) {
             case "A":
                 System.out.print("Enter the Integer to Insert: ");

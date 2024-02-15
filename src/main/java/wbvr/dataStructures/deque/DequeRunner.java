@@ -17,6 +17,7 @@ public class DequeRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, deque);
         } while (!choice.equals("J"));
     }
@@ -39,6 +40,7 @@ public class DequeRunner implements IRunner {
 
     private void action(String choice, LinkedListDeque<String> deque) {
         Scanner scanner = new Scanner(System.in);
+
         switch (choice) {
             case "A":
                 System.out.print("Enter the Element to Add First: ");

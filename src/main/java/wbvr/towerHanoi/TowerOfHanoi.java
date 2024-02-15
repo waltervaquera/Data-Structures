@@ -22,6 +22,7 @@ public class TowerOfHanoi {
     public void solve() {
         System.out.println();
         printTowers();
+
         moveDisks(source.size(), source, destination, auxiliary);
     }
 
@@ -30,6 +31,7 @@ public class TowerOfHanoi {
             moveDisks(n - 1, source, auxiliary, destination);
             destination.push(source.pop());
             printTowers();
+
             moveDisks(n - 1, auxiliary, destination, source);
         }
     }
@@ -53,6 +55,7 @@ public class TowerOfHanoi {
         if (!stack.isEmpty()) {
             Integer item = stack.pop();
             printStackInReverseHelper(stack);
+
             System.out.print(item + " ");
             stack.push(item);
         }

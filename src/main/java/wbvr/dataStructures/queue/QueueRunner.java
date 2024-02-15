@@ -17,6 +17,7 @@ public class QueueRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, queue);
         } while (!choice.equals("G"));
     }
@@ -36,6 +37,7 @@ public class QueueRunner implements IRunner {
 
     private void action(String choice, LinkedListQueue<String> queue) {
         Scanner scanner = new Scanner(System.in);
+
         switch (choice) {
             case "A":
                 System.out.print("Enter the Element to Enqueue: ");
