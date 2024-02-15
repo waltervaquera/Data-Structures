@@ -1,11 +1,16 @@
 package wbvr.dataStructures.sortingAlgorithms;
 
+import java.util.Arrays;
+
 public class QuickSort {
-    public void sort(int[] arr) {
+    public void run(int[] arr) {
         if (arr == null || arr.length == 0) {
             return;
         }
+
+        System.out.println("Original Array: " + Arrays.toString(arr));
         quickSort(arr, 0, arr.length - 1);
+        System.out.println("Sorted Array: " + Arrays.toString(arr));
     }
 
     private void quickSort(int[] arr, int low, int high) {
@@ -33,22 +38,5 @@ public class QuickSort {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
-    }
-
-    public void print(int[] arr) {
-        for (int num : arr) {
-            System.out.print(num + " ");
-        }
-        System.out.println();
-    }
-
-    public static void main(String[] args) {
-        int[] arr = {10, 7, 8, 9, 1, 5};
-        QuickSort quickSort = new QuickSort();
-        System.out.print("Original array: ");
-        quickSort.print(arr);
-        quickSort.sort(arr);
-        System.out.print("Sorted array: ");
-        quickSort.print(arr);
     }
 }

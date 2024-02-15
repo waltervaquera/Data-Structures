@@ -6,6 +6,7 @@ import wbvr.dataStructures.doublyLinkedList.DoublyLinkedListRunner;
 import wbvr.dataStructures.graph.GraphRunner;
 import wbvr.dataStructures.linkedList.LinkedListRunner;
 import wbvr.dataStructures.queue.QueueRunner;
+import wbvr.dataStructures.sortingAlgorithms.SortRunner;
 import wbvr.dataStructures.stack.StackRunner;
 
 public class RunnerFactory {
@@ -18,6 +19,7 @@ public class RunnerFactory {
             case "E" -> new DequeRunner();
             case "F" -> new BinaryTreeRunner();
             case "G" -> new GraphRunner();
+            case "H" -> new SortRunner();
             case "I" -> new ExitRunner();
             default -> new NullRunner();
         };
