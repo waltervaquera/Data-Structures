@@ -37,6 +37,6 @@ public class GEdge {
 
     @Override
     public String toString() {
-        return "[ " + source + ", " + destination + ", " + weight + "]";
+        return "[" + source + " to " + destination + ", cost: " + weight + "]";
     }
 }
