@@ -1,5 +1,7 @@
 package wbvr.dataStructures.graph;
 
+import java.util.Objects;
+
 public class GEdge {
     public GNode source;
     public GNode destination;
@@ -19,20 +21,21 @@ public class GEdge {
         return destination;
     }
 
-    public int getWeight() {
-        return weight;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        GEdge other = (GEdge) obj;
+        return source.equals(other.source) && destination.equals(other.destination) && weight == other.weight;
     }
 
-    public void setSource(GNode source) {
-        this.source = source;
-    }
-
-    public void setDestination(GNode destination) {
-        this.destination = destination;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
+    @Override
+    public int hashCode() {
+        return Objects.hash(source, destination, weight);
     }
 
     @Override

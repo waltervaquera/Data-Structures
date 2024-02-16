@@ -2,7 +2,6 @@ package wbvr.dataStructures.graph;
 
 import wbvr.dataStructures.IRunner;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class GraphRunner implements IRunner {
@@ -18,6 +17,7 @@ public class GraphRunner implements IRunner {
             printMenu();
             System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
+
             action(choice, graph);
         } while (!choice.equals("N"));
     }
@@ -44,90 +44,90 @@ public class GraphRunner implements IRunner {
 
     private void action(String choice, Graph graph) {
         Scanner scanner = new Scanner(System.in);
+        GNode node;
+        GEdge edge;
         GNode source;
         GNode destination;
         int weight;
+
         switch (choice) {
             case "A":
                 System.out.println("The Number of Nodes is: " + graph.getNumberOfNodes());
                 break;
             case "B":
-                System.out.print("Nodes in the Tree: ");
-                for (GNode node : graph.getNodes()) {
-                    System.out.print(node + " ");
-                }
-                System.out.println();
+                System.out.println("Nodes in the Tree: " + graph.getNodes());
                 break;
             case "C":
                 System.out.println("The Number of Edges is: " + graph.getNumberOfEdges());
                 break;
             case "D":
-                System.out.print("Edges in the Tree: ");
-                for (GEdge edge : graph.getEdges()) {
-                    System.out.print(edge + ", ");
-                }
-                System.out.println();
+                System.out.println("Edges in the Tree: " + graph.getEdges());
                 break;
             case "E":
                 System.out.print("Enter the Origin Node of the Edge: ");
                 source = new GNode(scanner.nextLine());
                 System.out.print("Enter the Destination Node of the Edge: ");
                 destination = new GNode(scanner.nextLine());
+
                 GEdge foundEdge = graph.getEdge(source, destination);
 
-                if (foundEdge == null) {
-                    System.out.println("Edge not Found.");
+                if (foundEdge != null) {
+                    System.out.println("Edge found: " + foundEdge);
                     break;
                 }
 
-                System.out.println("Found Edge: " + foundEdge);
+                System.out.println("Edge not found.");
                 break;
             case "F":
                 System.out.print("Enter the Node: ");
-                System.out.println("Out Degree of the Node: " + graph.outDegree(new GNode(scanner.nextLine())));
+                node = new GNode(scanner.nextLine());
+
+                if (graph.nodeExists(node)) {
+                    System.out.println("Out Degree of the Node: " + graph.outDegree(node));
+                    break;
+                }
+
+                System.out.println("Node don't Found, there is no Out Degree.");
                 break;
             case "G":
                 System.out.print("Enter the Node: ");
-                System.out.println("In Degree of the Node: " + graph.inDegree(new GNode(scanner.nextLine())));
+                node = new GNode(scanner.nextLine());
+
+                if (graph.nodeExists(node)) {
+                    System.out.println("In Degree of the Node: " + graph.inDegree(node));
+                    break;
+                }
+
+                System.out.println("Node not Found, there is no In Degree.");
                 break;
             case "H":
                 System.out.print("Enter the Node: ");
-                List<GEdge> outgoingEdges = graph.outgoingEdges(new GNode(scanner.nextLine()));
+                node = new GNode(scanner.nextLine());
 
-                if (outgoingEdges == null) {
+                if (graph.nodeExists(node)) {
+                    System.out.println("Outgoing Edges of the Node: " + graph.outgoingEdges(node));
                     break;
                 }
 
-                System.out.print("Outgoing Edges of the Node: ");
-                for (GEdge edge : outgoingEdges) {
-                    System.out.print(edge + ", ");
-                }
-                System.out.println();
+                System.out.println("Node not Found, there is no Outgoing Edges.");
                 break;
             case "I":
                 System.out.print("Enter the Node: ");
-                List<GEdge> incomingEdges = graph.incomingEdges(new GNode(scanner.nextLine()));
+                node = new GNode(scanner.nextLine());
 
-                if (incomingEdges == null) {
+                if (graph.nodeExists(node)) {
+                    System.out.println("Incoming Edges of the Node: " + graph.incomingEdges(node));
                     break;
                 }
 
-                System.out.print("Incoming Edges of the Node: ");
-                for (GEdge edge : incomingEdges) {
-                    System.out.print(edge + ", ");
-                }
-                System.out.println();
+                System.out.println("Node not Found, there is no Incoming Edges.");
                 break;
             case "J":
                 System.out.print("Enter the Node to Add: ");
                 graph.addNode(new GNode(scanner.nextLine()));
 
                 System.out.println("Node Successfully Added.");
-                System.out.print("Nodes in the Tree: ");
-                for (GNode node : graph.getNodes()) {
-                    System.out.print(node + " ");
-                }
-                System.out.println();
+                System.out.println("Nodes in the Tree: " + graph.getNodes());
                 break;
             case "K":
                 System.out.print("Enter the Origin Node of the Edge: ");
@@ -137,28 +137,27 @@ public class GraphRunner implements IRunner {
                 System.out.print("Enter the Weight Node of the Edge: ");
                 weight = scanner.nextInt();
 
-                graph.addEdge(source, destination, weight);
-
-                if (graph.getEdge(source, destination) != null) {
+                if (graph.nodeExists(source) && graph.nodeExists(destination)) {
+                    graph.addEdge(source, destination, weight);
                     System.out.println("Edge Successfully Added.");
-                    System.out.print("Edges in the Tree: ");
-                    for (GEdge edge : graph.getEdges()) {
-                        System.out.print(edge + ", ");
-                    }
-                    System.out.println();
+                    System.out.println("Edges in the Tree: " + graph.getEdges());
+                    break;
                 }
+
+                System.out.println("Invalid Source or Destination Node.");
                 break;
             case "L":
                 System.out.print("Enter the Node to Remove: ");
-                GNode nodeToRemove = new GNode(scanner.nextLine());
+                node = new GNode(scanner.nextLine());
 
-                graph.removeNode(nodeToRemove);
-                System.out.println("Node Successfully Removed.");
-                System.out.print("Nodes in the Tree: ");
-                for (GNode node : graph.getNodes()) {
-                    System.out.print(node + " ");
+                if (graph.nodeExists(node)) {
+                    graph.removeNode(node);
+                    System.out.println("Node Successfully Removed.");
+                    System.out.println("Nodes in the Tree: " + graph.getNodes());
+                    break;
                 }
-                System.out.println();
+
+                System.out.println("Node not Found, there is no Node to Remove.");
                 break;
             case "M":
                 System.out.print("Enter the Origin Node of the Edge: ");
@@ -168,18 +167,16 @@ public class GraphRunner implements IRunner {
                 System.out.print("Enter the Weight Node of the Edge: ");
                 weight = scanner.nextInt();
 
-                if (graph.getEdge(source, destination) == null) {
-                    System.out.println("Edge not Found.");
+                edge = new GEdge(source, destination, weight);
+
+                if (graph.edgeExists(edge)) {
+                    graph.removeEdge(new GEdge(source, destination, weight));
+                    System.out.println("Edge Successfully Removed.");
+                    System.out.println("Edges in the Tree: " + graph.getEdges());
                     break;
                 }
 
-                graph.removeEdge(new GEdge(source, destination, weight));
-                System.out.println("Edge Successfully Removed.");
-                System.out.print("Edges in the Tree: ");
-                for (GEdge edge : graph.getEdges()) {
-                    System.out.print(edge + ", ");
-                }
-                System.out.println();
+                System.out.println("Edge not Found, there is no Edge to Remove.");
                 break;
             case "N":
                 System.out.println("Exiting Menu...");

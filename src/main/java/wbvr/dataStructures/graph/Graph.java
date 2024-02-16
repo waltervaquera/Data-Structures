@@ -125,4 +125,22 @@ public class Graph implements IGraph {
         edgeList.remove(edge);
         adjacencyMap.get(edge.getSource()).remove(edge);
     }
+
+    public boolean nodeExists(GNode nodeToCheck) {
+        for (GNode node : nodeList) {
+            if (node.equals(nodeToCheck)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean edgeExists(GEdge edgeToCheck) {
+        for (GEdge edge : edgeList) {
+            if (edge.equals(edgeToCheck)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
