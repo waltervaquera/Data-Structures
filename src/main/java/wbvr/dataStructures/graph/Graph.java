@@ -5,157 +5,124 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Graph implements IGraph{
-    String name;
-    Map<GNode, List<GEdge>> graph;
+public class Graph implements IGraph {
+    private final Map<GNode, List<GEdge>> adjacencyMap;
+    private final List<GNode> nodeList;
+    private final List<GEdge> edgeList;
 
-    public Graph(String name) {
-        this.name = name;
-        graph = new HashMap<>();
+    public Graph() {
+        adjacencyMap = new HashMap<>();
+        nodeList = new ArrayList<>();
+        edgeList = new ArrayList<>();
     }
 
     @Override
     public int getNumberOfNodes() {
-        return graph.size();
+        return nodeList.size();
     }
 
     @Override
     public List<GNode> getNodes() {
-        return new ArrayList<>(graph.keySet());
+        return nodeList;
     }
 
     @Override
     public int getNumberOfEdges() {
-        return getEdges().size();
+        return edgeList.size();
     }
 
     @Override
     public List<GEdge> getEdges() {
-        List<GEdge> edges = new ArrayList<>();
-        for (GNode key: graph.keySet()) {
-            edges.addAll(graph.get(key));
-        }
-
-        return edges;
+        return edgeList;
     }
 
     @Override
     public GEdge getEdge(GNode source, GNode destination) {
-        if (graph.get(source) == null) {
-            System.out.println("Source Node not Found.");
-            return null;
-        }
-
-        for (GEdge edge : graph.get(source)) {
-            if (edge.getDestination().equals(destination)){
-                return edge;
+        List<GEdge> edges = adjacencyMap.get(source);
+        if (edges != null) {
+            for (GEdge edge : edges) {
+                if (edge.getDestination().equals(destination)) {
+                    return edge;
+                }
             }
         }
 
-        System.out.println("Edge not Found.");
         return null;
     }
 
     @Override
     public int outDegree(GNode node) {
-        if (graph.get(node) == null) {
-            System.out.println("Node not Found.");
-            return 0;
-        }
-
-        return graph.get(node).size();
+        List<GEdge> edges = adjacencyMap.get(node);
+        return edges != null ? edges.size() : 0;
     }
 
     @Override
     public int inDegree(GNode node) {
-        if (graph.get(node) == null) {
-            System.out.println("Node not Found.");
-            return 0;
-        }
-
-        int counter = 0;
-        for (GNode key: graph.keySet()) {
-            for (GEdge edge : graph.get(key)) {
-                if (edge.getDestination().equals(node)){
-                    counter++;
+        int count = 0;
+        for (GNode n : nodeList) {
+            List<GEdge> edges = adjacencyMap.get(n);
+            if (edges != null) {
+                for (GEdge edge : edges) {
+                    if (edge.getDestination().equals(node)) {
+                        count++;
+                    }
                 }
             }
         }
 
-        return counter;
+        return count;
     }
 
     @Override
     public List<GEdge> outgoingEdges(GNode node) {
-        if (graph.get(node) == null) {
-            System.out.println("Node not Found.");
-            return null;
-        }
-
-        return graph.get(node);
+        return adjacencyMap.getOrDefault(node, new ArrayList<>());
     }
 
     @Override
     public List<GEdge> incomingEdges(GNode node) {
-        if (graph.get(node) == null) {
-            System.out.println("Node not Found.");
-            return null;
-        }
-
-        for (GNode key: graph.keySet()) {
-            List<GEdge> edges = graph.get(key);
-            for (GEdge edge : edges) {
-                if (edge.getDestination().equals(node)){
-                    return edges;
+        List<GEdge> incomingEdges = new ArrayList<>();
+        for (GNode n : nodeList) {
+            List<GEdge> edges = adjacencyMap.get(n);
+            if (edges != null) {
+                for (GEdge edge : edges) {
+                    if (edge.getDestination().equals(node)) {
+                        incomingEdges.add(edge);
+                    }
                 }
             }
         }
 
-        System.out.println("The Node don't have Incoming Edges.");
-        return null;
+        return incomingEdges;
     }
 
     @Override
     public void addNode(GNode node) {
-        graph.putIfAbsent(node, new ArrayList<>());
+        if (!adjacencyMap.containsKey(node)) {
+            adjacencyMap.put(node, new ArrayList<>());
+            nodeList.add(node);
+        }
     }
 
     @Override
     public void addEdge(GNode source, GNode destination, int weight) {
-        if (getNode(source) == null || getNode(destination) == null) {
-            System.out.println("Couldn't add Edge.");
-            return;
-        }
-
-        graph.get(source).add(new GEdge(source, destination, weight));
+        GEdge edge = new GEdge(source, destination, weight);
+        adjacencyMap.getOrDefault(source, new ArrayList<>()).add(edge);
+        edgeList.add(edge);
     }
 
     @Override
     public void removeNode(GNode node) {
-        if (graph.get(node) == null) {
-            System.out.println("Node not Found.");
-            return;
+        nodeList.remove(node);
+        adjacencyMap.remove(node);
+        edgeList.removeIf(edge -> edge.getSource().equals(node) || edge.getDestination().equals(node));
+        for (GNode n : nodeList) {
+            adjacencyMap.get(n).removeIf(edge -> edge.getDestination().equals(node));
         }
-
-        graph.remove(node);
     }
 
     @Override
     public void removeEdge(GEdge edge) {
-        if (graph.get(edge.getSource()) == null) {
-            System.out.println("Couldn't add Edge.");
-            return;
-        }
-
-        graph.get(edge.getSource()).remove(edge);
-    }
-
-    public GNode getNode(GNode node) {
-        for (GNode n : graph.keySet()) {
-            if (n.equals(node)) {
-                return node;
-            }
-        }
-        return null;
+        edgeList.remove(edge);
+        adjacencyMap.get(edge.getSource()).remove(edge);
     }
 }

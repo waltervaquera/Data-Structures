@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class GraphRunner implements IRunner {
     @Override
     public void run() {
-        Graph graph = new Graph("graph");
+        Graph graph = new Graph();
         System.out.println("Graph Created.");
 
         Scanner scanner = new Scanner(System.in);
@@ -151,11 +151,6 @@ public class GraphRunner implements IRunner {
             case "L":
                 System.out.print("Enter the Node to Remove: ");
                 GNode nodeToRemove = new GNode(scanner.nextLine());
-
-                if (graph.getNode(nodeToRemove) == null) {
-                    System.out.println("Node not Found.");
-                    break;
-                }
 
                 graph.removeNode(nodeToRemove);
                 System.out.println("Node Successfully Removed.");
